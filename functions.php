@@ -63,7 +63,7 @@ global $wpdb;
 if (is_search() && !is_admin()) {
 $search_term = get_search_query();
 if (!empty($search_term)) {
-$like = $wpdb->esc_like($search_term) . '%'; // يبدأ بالكلمة
+$like = '%' . $wpdb->esc_like($search_text) . '%';
 $where .= $wpdb->prepare(" AND {$wpdb->posts}.post_title LIKE %s", $like);
 }
 }
